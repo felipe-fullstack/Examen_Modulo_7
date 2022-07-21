@@ -1,0 +1,22 @@
+<%- include("template/cabecera", {tituloWeb: 'Página Editar Cliente' }) %>
+
+    <div class="container">
+        <h1>Editar Cliente</h1>
+        <br>
+        <form action="editarCliente" class="my-2" method="POST">
+
+            <input type="text" class="form-control my2" autofocus name="nombre" value="<%= nombre %>">
+            <br>
+            <input type="text" class="form-control my2" name="apellido" value="<%= apellido %>">
+            <br>
+            <input type="text" class="form-control my2" name="rut" value="<%= rut %>">
+            <br>
+            <input type="text" class="form-control my2" name="telefono" value="<%= telefono %>">
+            <br>
+            <button type="submit" class="btn btn-dark btn-block">Modificar Cliente
+            </button>
+            <input type="hidden" name="id" value="<%= id %>">
+        </form>
+    </div>
+
+    <%- include("template/footer") %>

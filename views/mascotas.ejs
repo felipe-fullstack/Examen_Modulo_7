@@ -1,0 +1,74 @@
+<%- include("template/cabecera", {tituloWeb: 'Página de Inicio Cliente' }) %>
+
+    <div class="container">
+        <br>
+        <a class="btn btn-primary" href="mascotas/crearMascotas" role="button">
+            INGRESAR&nbsp;NUEVA&nbsp;MASCOTA
+        </a>
+    </div>
+    <br>
+    <div class="container">
+        <table class="table">
+            <br>
+            <h2>Mascotas&nbsp;⬇️</h2>
+            <thead>
+                <th scope="col">NOMBRE</th>
+                <th scope="col">RAZA</th>
+                <th scope="col">AÑO&nbsp;DE&nbsp;NACIMIENTO</th>
+                <th scope="col">DESCRIPCION</th>
+                <th scope="col">ACCIONES</th>
+            </thead>
+            <tbody>
+                <div>
+                    <% if (arrayMascotas.length> 0) { %>
+                        <% arrayMascotas.forEach(mascota=> { %>
+                            <tr>
+                                <th>
+                                    <%= mascota.nombre %>
+                                </th>
+                                <th>
+                                    <%= mascota.raza %>
+                                </th>
+                                <th>
+                                    <%= mascota.ano %>
+                                </th>
+                                <th>
+                                    <%= mascota.descripcion %>
+                                </th>
+                                <th>
+                                    <a class="btn btn-primary btn-sm" href="mascotas/verMascota/<%= mascota.id %>"
+                                        rol="button">
+                                        Modificar
+                                    </a>
+                                    <a class="btn btn-danger btn-sm" href="javascript:eliminar('<%= mascota.id %>')"
+                                        rol="button">
+                                        Eliminar
+                                    </a>
+                                </th>
+                            </tr>
+                            <br>
+                            <% }) %>
+                                <% } %>
+
+                </div>
+            </tbody>
+        </table>
+
+
+
+    </div>
+
+    <script>
+        async function eliminar(paramID) {
+            try {
+                const data = await fetch(`/mascotas/${paramID}`, {
+                    method: 'delete'
+                });
+                window.location.href = '/mascotas';
+            } catch (error) {
+                console.log(error)
+            }
+        }
+    </script>
+
+    <%- include("template/footer") %>

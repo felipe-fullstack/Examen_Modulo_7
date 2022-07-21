@@ -1,0 +1,23 @@
+<%- include("template/cabecera", {tituloWeb: 'Página Crear Nuevo Cliente' }) %>
+    <br>
+    <br>
+    <div class="container">
+        <h1>Nuevo&nbsp;Cliente</h1>
+        <br>
+        <form action="agregarCliente" class="my-2" method="POST">
+
+            <input type="text" placeholder="Ingrese el Nombre" class="form-control my2" autofocus name="nombre">
+            <br>
+            <input type="text" placeholder="Ingrese el Apellido" class="form-control my2" name="apellido">
+            <br>
+            <input type="text" placeholder="Ingrese el Rut" class="form-control my2" name="rut">
+            <br>
+            <input type="text" placeholder="Ingrese N° Telefono" class="form-control my2" name="telefono">
+            <br>
+            <button type="submit" class="btn btn-dark btn-block">Agregar Cliente
+            </button>
+
+        </form>
+    </div>
+
+    <%- include("template/footer") %>

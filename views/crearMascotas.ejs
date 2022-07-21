@@ -1,0 +1,22 @@
+<%- include("template/cabecera", {tituloWeb: 'Página Crear Nueva Mascota' }) %>
+    <br>
+    <div class="container">
+        <br>
+        <h1>Nueva Mascota</h1>
+        <br>
+        <form action="agregarMascota" class="my-2" method="POST">
+
+            <input type="text" placeholder="Ingrese Nombre" autofocus class="form-control my2" name="nombre">
+            <br>
+            <input type="text" placeholder="Ingrese Raza" class="form-control my2" name="raza">
+            <br>
+            <input type="text" placeholder="Ingrese Año de Nacimiento" class="form-control my2" name="ano">
+            <br>
+            <input type="text" placeholder="Ingrese Descripción" class="form-control my2" name="descripcion">
+            <br>
+            <button type="submit" class="btn btn-dark btn-block">Agregar Mascota
+            </button>
+        </form>
+    </div>
+
+    <%- include("template/footer") %>

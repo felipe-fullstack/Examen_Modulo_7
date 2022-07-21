@@ -1,0 +1,74 @@
+<%- include("template/cabecera", {tituloWeb: 'Página de Usuario' }) %>
+
+    <div class="container">
+        <br>
+        <a class="btn btn-primary" href="usuarios/crearUsuario" role="button">
+            INGRESAR&nbsp;NUEVO&nbsp;USUARIO
+        </a>
+    </div>
+    <br>
+    <div class="container">
+        <table class="table">
+            <br>
+            <h2>Usuarios&nbsp;⬇️</h2>
+            <thead>
+                <th scope="col">NOMBRE</th>
+                <th scope="col">CORREO</th>
+                <th scope="col">CONTRASEÑA</th>
+                <th scope="col">FECHA&nbsp;REGISTRO</th>
+                <th scope="col">ACCIÓN</th>
+            </thead>
+            <tbody>
+                <div>
+                    <% if (arrayUsuarios.length> 0) { %>
+                        <% arrayUsuarios.forEach(usuario=> { %>
+                            <tr>
+                                <th>
+                                    <%= usuario.nombre %>
+                                </th>
+                                <th>
+                                    <%= usuario.email %>
+                                </th>
+                                <th>
+                                    <%= usuario.password %>
+                                </th>
+                                <th>
+                                    <%= usuario.date %>
+                                </th>
+                                <th>
+                                    <a class="btn btn-primary btn-sm" href="usuarios/verUsuario/<%= usuario.id %>"
+                                        rol="button">
+                                        Modificar
+                                    </a>
+                                    <a class="btn btn-danger btn-sm" href="javascript:eliminar('<%= usuario.id %>')"
+                                        rol="button">
+                                        Eliminar
+                                    </a>
+                                </th>
+                            </tr>
+                            <br>
+                            <% }) %>
+                                <% } %>
+
+                </div>
+            </tbody>
+        </table>
+
+
+
+    </div>
+
+    <script>
+        async function eliminar(paramID) {
+            try {
+                const data = await fetch(`/usuarios/${paramID}`, {
+                    method: 'delete'
+                });
+                window.location.href = '/usuarios';
+            } catch (error) {
+                console.log(error)
+            }
+        }
+    </script>
+
+    <%- include("template/footer") %>

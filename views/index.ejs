@@ -1,0 +1,36 @@
+<%- include("template/cabecera2", {tituloWeb: 'Página de Inicio'}) %>
+<br>
+<center><h1 class="text-primary">Portal&nbsp;del&nbsp;usuario</h1></center>
+<br>
+<center><img src="https://img.freepik.com/vector-gratis/lindo-perro-sacando-lengua-ilustracion-icono-dibujos-animados_138676-2709.jpg?w=2000" style="width: 250px; height: 250px"></center>
+<br>
+<center><h2><%= titulo %></h2></center>
+<br>
+<center><form action="login" class="my-2" method="POST">
+
+    <input
+        type="text"
+        placeholder="Usuario"
+        class="form-control my2"
+        name="email"
+        style="max-width: 50%;"
+        autofocus        
+    >
+    <br>
+    <input
+    type="text"
+    placeholder="Password"
+    class="form-control my2"
+    name="password"
+    style="max-width: 50%;"
+    >
+    <br>
+    <button
+        type="submit"
+        class="btn btn-dark btn-block"
+    >Ingresar
+    </button>
+
+</form></center>
+
+<%- include("template/footer") %>

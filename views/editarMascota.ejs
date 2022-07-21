@@ -1,0 +1,21 @@
+<%- include("template/cabecera", {tituloWeb: 'Página Editar Mascota' }) %>
+
+    <div class="container">
+        <h1>Editar Mascota</h1>
+        <br>
+        <form action="editarMascota" class="my-2" method="POST">
+            <input type="text" class="form-control my2" autofocus name="nombre" value="<%= nombre %>">
+            <br>
+            <input type="text" class="form-control my2" name="raza" value="<%= raza %>">
+            <br>
+            <input type="text" class="form-control my2" name="ano" value="<%= ano %>">
+            <br>
+            <input type="text" class="form-control my2" name="descripcion" value="<%= descripcion %>">
+            <br>
+            <button type="submit" class="btn btn-dark btn-block">Modificar Mascota
+            </button>
+            <input type="hidden" name="id" value="<%= id %>">
+        </form>
+    </div>
+
+    <%- include("template/footer") %>
